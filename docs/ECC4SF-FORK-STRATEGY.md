@@ -107,6 +107,17 @@ on:
 - Upstream uses `v2.x` semver — do not reuse.
 - ECC4SF releases tag as `ecc4sf-<semver>` (e.g. `ecc4sf-0.1.0`).
 
+## 8a. Change logging
+
+Layered, no per-change files:
+
+- **Per-change:** conventional commits (commitlint-enforced) — the raw, attributed log.
+- **Curated human log:** `CHANGELOG.ECC4SF.md` (ECC4SF-owned, additive → conflict-free
+  on upstream syncs). Add user-facing Salesforce changes under `## Unreleased`; promote
+  to a dated `ecc4sf-<semver>` section at release. Do **not** edit upstream's shared
+  `CHANGELOG.md` for ECC4SF changes.
+- **Decisions:** `docs/` records (like this file) for architectural decisions only.
+
 ## 9. Principles adopted from ECC
 
 ECC's validation gate (`scripts/ci/validate-*.js`) already enforces house style,
