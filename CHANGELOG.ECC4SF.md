@@ -21,6 +21,12 @@ log lives in git history (conventional commits); this is the curated human log.
   assertions, `TestDataFactory`/`@testSetup`, bulk (200-record) and negative paths,
   `System.runAs()` permission tests, and mocked callouts.
 
+### Fixed
+
+- Inherited unicode-safety gate failure: replaced U+2605/U+2606 star-glyph
+  ratings with plain-ASCII `N/5` in `windows-desktop-e2e` SKILL.md and its ja-JP
+  mirror, so `check-unicode-safety.js` passes.
+
 ### Infrastructure
 
 - Established ECC4SF as a rebranded downstream distribution of upstream ECC with an
