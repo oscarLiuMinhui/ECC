@@ -20,6 +20,14 @@ log lives in git history (conventional commits); this is the curated human log.
 - `apex-testing` skill — patterns to meet the 75% Apex coverage gate with real
   assertions, `TestDataFactory`/`@testSetup`, bulk (200-record) and negative paths,
   `System.runAs()` permission tests, and mocked callouts.
+- `bulkification` skill — write Apex that scales 1→200+ records per transaction:
+  SOQL/DML out of loops, collection-based logic, maps/relationship queries.
+- `rules/apex/security.md` — sharing, CRUD/FLS enforcement
+  (`USER_MODE`/`SECURITY_ENFORCED`/`stripInaccessible`), SOQL injection, secrets.
+- `rules/apex/governor-limits.md` — per-transaction limits, no SOQL/DML in loops,
+  bulkified entry points, async for large data volumes.
+- `/apex-review` command — invokes the `apex-reviewer` agent; registered in
+  `agent.yaml` and the command registry.
 
 ### Fixed
 
