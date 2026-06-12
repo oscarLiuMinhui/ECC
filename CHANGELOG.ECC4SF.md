@@ -14,6 +14,25 @@ log lives in git history (conventional commits); this is the curated human log.
 
 ### Added
 
+- **Flow pack** — full review pack covering record-triggered (before/after-save), screen,
+  scheduled, platform-event, and autolaunched Flows:
+  - `sf-flow-reviewer` agent — reviews Flow metadata for performance under governor limits
+    (no Get/DML inside Loops, before-save over after-save, bounded Get Records), security
+    (run mode / FLS bypass, guest-user screen Flows, invoked-Apex sharing/CRUD-FLS),
+    fault-path error handling, declarative-vs-Apex design, trigger order, and naming.
+  - `/sf-flow-review` command — invokes the `sf-flow-reviewer` agent; registered in
+    `agent.yaml` and the command registry.
+  - `sf-flow-patterns` skill — choosing the Flow type, before-save vs after-save, entry
+    conditions and trigger order, subflow decomposition, and Flow-vs-Apex.
+  - `sf-flow-bulkification` skill — keeping Flows within per-transaction governor limits:
+    never Get/DML inside a Loop, assign-in-loop then one DML, bounded Get Records,
+    delegating heavy volume to bulk-safe Apex.
+  - `sf-flow-error-handling` skill — fault connectors on every Get/DML/callout/invocable,
+    surfacing/logging instead of swallowing, Custom Error, rollback semantics, bounded retry.
+  - `sf-flow-testing` skill — Flow Tests for record-triggered Flows, debug runs, Apex
+    coverage for invoked invocables (75% gate), bulk and fault-path coverage.
+  - `rules/sf-flow/` — `performance.md`, `security.md`, `error-handling.md`,
+    `naming-conventions.md` (path-scoped to `flows/` and `*.flow-meta.xml`).
 - **OmniStudio pack** — full review pack covering OmniScripts, Integration Procedures,
   DataRaptors, and FlexCards:
   - `sf-omnistudio-reviewer` agent — reviews OmniStudio metadata for performance under

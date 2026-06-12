@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "totalCommands": 86,
+  "totalCommands": 87,
   "commands": [
     {
       "command": "aside",
@@ -885,6 +885,17 @@
       "path": "commands/sf-apex-review.md"
     },
     {
+      "command": "sf-flow-review",
+      "description": "Comprehensive Salesforce Flow review for record-triggered, screen, scheduled, platform-event, and autolaunched Flows — performance under governor limits, run-mode/FLS security, fault-path error handling, declarative-vs-Apex design, trigger order, and naming. Invokes the sf-flow-reviewer agent.",
+      "type": "testing",
+      "primaryAgents": [],
+      "allAgents": [],
+      "skills": [
+        "error-handling"
+      ],
+      "path": "commands/sf-flow-review.md"
+    },
+    {
       "command": "sf-omnistudio-review",
       "description": "Comprehensive Salesforce OmniStudio review for OmniScripts, Integration Procedures, DataRaptors, and FlexCards — performance under governor limits, DataRaptor FLS/security, declarative-vs-Apex design, versioning/activation, and naming. Invokes the sf-omnistudio-reviewer agent.",
       "type": "testing",
@@ -947,7 +958,7 @@
       "planning": 2,
       "refactoring": 1,
       "review": 9,
-      "testing": 54
+      "testing": 55
     },
     "topAgents": [
       {
