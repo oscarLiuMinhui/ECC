@@ -14,6 +14,25 @@ log lives in git history (conventional commits); this is the curated human log.
 
 ### Added
 
+- **OmniStudio pack** — full review pack covering OmniScripts, Integration Procedures,
+  DataRaptors, and FlexCards:
+  - `sf-omnistudio-reviewer` agent — reviews OmniStudio metadata for performance under
+    governor limits (no server work in Loop Blocks, bulk/Turbo DataRaptors, trimmed
+    responses), security (DataRaptor FLS, guest exposure, invoked-Apex sharing/CRUD-FLS),
+    declarative-vs-Apex design, versioning/activation, and naming.
+  - `/sf-omnistudio-review` command — invokes the `sf-omnistudio-reviewer` agent;
+    registered in `agent.yaml` and the command registry.
+  - `sf-omnistudio-patterns` skill — DataRaptor vs IP vs Apex choice, modularizing
+    monolithic OmniScripts/IPs into reusable sub-components, FlexCard composition, and
+    versioning/activation discipline.
+  - `sf-omnistudio-performance` skill — keeping IPs/DataRaptors within per-transaction
+    governor limits: no server work inside Loop Blocks, bulk DataRaptors, Turbo Extracts,
+    minimal round trips, response trimming, caching, delegating volume to bulk-safe Apex.
+  - `sf-omnistudio-data-mapping` skill — DataRaptor Extract/Turbo/Transform/Load choice,
+    FLS enforcement, bounded queries, bound inputs, and bulk-safe mappings.
+  - `sf-omnistudio-testing` skill — DataRaptor/IP preview test cases, Apex coverage for
+    invoked Remote Actions (75% gate), and Jest for FlexCard/OmniStudio LWC.
+  - `rules/sf-omnistudio/performance.md`, `security.md`, `naming-conventions.md`.
 - `sf-apex-reviewer` agent — Salesforce Apex code review covering security (SOQL/SOSL
   injection, CRUD/FLS, sharing), governor limits and bulkification, trigger-handler
   framework, and test quality (75% deploy-coverage gate).

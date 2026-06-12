@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "totalCommands": 85,
+  "totalCommands": 86,
   "commands": [
     {
       "command": "aside",
@@ -885,6 +885,15 @@
       "path": "commands/sf-apex-review.md"
     },
     {
+      "command": "sf-omnistudio-review",
+      "description": "Comprehensive Salesforce OmniStudio review for OmniScripts, Integration Procedures, DataRaptors, and FlexCards — performance under governor limits, DataRaptor FLS/security, declarative-vs-Apex design, versioning/activation, and naming. Invokes the sf-omnistudio-reviewer agent.",
+      "type": "testing",
+      "primaryAgents": [],
+      "allAgents": [],
+      "skills": [],
+      "path": "commands/sf-omnistudio-review.md"
+    },
+    {
       "command": "skill-create",
       "description": "Analyze local git history to extract coding patterns and generate SKILL.md files. Local version of the Skill Creator GitHub App.",
       "type": "testing",
@@ -938,7 +947,7 @@
       "planning": 2,
       "refactoring": 1,
       "review": 9,
-      "testing": 53
+      "testing": 54
     },
     "topAgents": [
       {

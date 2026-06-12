@@ -236,6 +236,7 @@ commands:
   - sessions
   - setup-pm
   - sf-apex-review
+  - sf-omnistudio-review
   - skill-create
   - skill-health
   - test-coverage
