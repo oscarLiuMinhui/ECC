@@ -1,6 +1,6 @@
 ---
 name: sf-omnistudio-reviewer
-description: Salesforce OmniStudio reviewer for OmniScripts, IPs, DataRaptors, FlexCards. MUST BE USED for OmniStudio metadata changes.
+description: Salesforce OmniStudio reviewer. MUST BE USED for OmniStudio metadata changes.
 tools: ["Read", "Grep", "Glob", "Bash"]
 model: sonnet
 ---

@@ -137,10 +137,10 @@ so conforming SF content inherits the discipline automatically.
 
 ### Salesforce additions roadmap (all new files → zero merge conflict)
 
-- **Agents:** `sf-apex-reviewer` (done), `sf-omnistudio-reviewer` (done), `sf-lwc-reviewer`, `sf-soql-optimizer`, `sf-flow-reviewer`, `sf-deploy-resolver`
-- **Skills:** `sf-apex-patterns`, `sf-apex-testing` (done), `sf-apex-bulkification` (done), `sf-omnistudio-patterns` (done), `sf-omnistudio-performance` (done), `sf-omnistudio-data-mapping` (done), `sf-omnistudio-testing` (done), `sf-lwc-jest-testing`, `sf-trigger-handler-framework`, `sf-cli-workflow`, `sf-scratch-org`
-- **Rules:** `rules/sf-apex/security.md` (done), `rules/sf-apex/governor-limits.md` (done), `rules/sf-omnistudio/` (performance, security, naming-conventions — done), `rules/sf-apex/style.md`, `rules/sf-lwc/`
-- **Commands:** `/sf-apex-review` (done), `/sf-omnistudio-review` (done), `/sf-deploy`, `/sf-apex-test`, `/sf-lwc-test`, `/sf-soql-check`
+- **Agents:** `sf-apex-reviewer` (done), `sf-omnistudio-reviewer` (done), `sf-flow-reviewer` (done), `sf-lwc-reviewer`, `sf-soql-optimizer`, `sf-deploy-resolver`
+- **Skills:** `sf-apex-patterns`, `sf-apex-testing` (done), `sf-apex-bulkification` (done), `sf-omnistudio-patterns` (done), `sf-omnistudio-performance` (done), `sf-omnistudio-data-mapping` (done), `sf-omnistudio-testing` (done), `sf-flow-patterns` (done), `sf-flow-bulkification` (done), `sf-flow-error-handling` (done), `sf-flow-testing` (done), `sf-lwc-jest-testing`, `sf-trigger-handler-framework`, `sf-cli-workflow`, `sf-scratch-org`
+- **Rules:** `rules/sf-apex/security.md` (done), `rules/sf-apex/governor-limits.md` (done), `rules/sf-omnistudio/` (performance, security, naming-conventions — done), `rules/sf-flow/` (performance, security, error-handling, naming-conventions — done), `rules/sf-apex/style.md`, `rules/sf-lwc/`
+- **Commands:** `/sf-apex-review` (done), `/sf-omnistudio-review` (done), `/sf-flow-review` (done), `/sf-deploy`, `/sf-apex-test`, `/sf-lwc-test`, `/sf-soql-check`
 
 Base each new file on the closest existing peer (e.g. `sf-apex-reviewer` on
 `rust-reviewer`) so it passes the validators on first run.
