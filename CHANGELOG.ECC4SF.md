@@ -14,20 +14,29 @@ log lives in git history (conventional commits); this is the curated human log.
 
 ### Added
 
-- `apex-reviewer` agent — Salesforce Apex code review covering security (SOQL/SOSL
+- `sf-apex-reviewer` agent — Salesforce Apex code review covering security (SOQL/SOSL
   injection, CRUD/FLS, sharing), governor limits and bulkification, trigger-handler
   framework, and test quality (75% deploy-coverage gate).
-- `apex-testing` skill — patterns to meet the 75% Apex coverage gate with real
+- `sf-apex-testing` skill — patterns to meet the 75% Apex coverage gate with real
   assertions, `TestDataFactory`/`@testSetup`, bulk (200-record) and negative paths,
   `System.runAs()` permission tests, and mocked callouts.
-- `bulkification` skill — write Apex that scales 1→200+ records per transaction:
+- `sf-apex-bulkification` skill — write Apex that scales 1→200+ records per transaction:
   SOQL/DML out of loops, collection-based logic, maps/relationship queries.
-- `rules/apex/security.md` — sharing, CRUD/FLS enforcement
+- `rules/sf-apex/security.md` — sharing, CRUD/FLS enforcement
   (`USER_MODE`/`SECURITY_ENFORCED`/`stripInaccessible`), SOQL injection, secrets.
-- `rules/apex/governor-limits.md` — per-transaction limits, no SOQL/DML in loops,
+- `rules/sf-apex/governor-limits.md` — per-transaction limits, no SOQL/DML in loops,
   bulkified entry points, async for large data volumes.
-- `/apex-review` command — invokes the `apex-reviewer` agent; registered in
+- `/sf-apex-review` command — invokes the `sf-apex-reviewer` agent; registered in
   `agent.yaml` and the command registry.
+
+### Changed
+
+- Adopted a uniform `sf-` namespace prefix for all ECC4SF components (see
+  [docs/ECC4SF-FORK-STRATEGY.md](docs/ECC4SF-FORK-STRATEGY.md) §10). Renamed the
+  initial Apex pack: `apex-reviewer`→`sf-apex-reviewer`, `apex-testing`→
+  `sf-apex-testing`, `bulkification`→`sf-apex-bulkification`, `rules/apex/`→
+  `rules/sf-apex/`, `/apex-review`→`/sf-apex-review`. Technology stays in the name
+  (`sf-<tech>-<role>`) so the family is grouped and collision-safe against upstream.
 
 ### Fixed
 

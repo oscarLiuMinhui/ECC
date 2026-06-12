@@ -3,17 +3,6 @@
   "totalCommands": 85,
   "commands": [
     {
-      "command": "apex-review",
-      "description": "Comprehensive Salesforce Apex code review for security (CRUD/FLS, sharing, SOQL injection), governor limits/bulkification, trigger design, and test quality. Invokes the apex-reviewer agent.",
-      "type": "testing",
-      "primaryAgents": [],
-      "allAgents": [],
-      "skills": [
-        "bulkification"
-      ],
-      "path": "commands/apex-review.md"
-    },
-    {
       "command": "aside",
       "description": "Answer a quick side question without interrupting or losing context from the current task. Resume work automatically after answering.",
       "type": "testing",
@@ -885,6 +874,15 @@
       "allAgents": [],
       "skills": [],
       "path": "commands/setup-pm.md"
+    },
+    {
+      "command": "sf-apex-review",
+      "description": "Comprehensive Salesforce Apex code review for security (CRUD/FLS, sharing, SOQL injection), governor limits/bulkification, trigger design, and test quality. Invokes the sf-apex-reviewer agent.",
+      "type": "testing",
+      "primaryAgents": [],
+      "allAgents": [],
+      "skills": [],
+      "path": "commands/sf-apex-review.md"
     },
     {
       "command": "skill-create",

@@ -125,22 +125,43 @@ so conforming SF content inherits the discipline automatically.
 
 | ECC principle | ECC4SF / Salesforce translation |
 |---|---|
-| Agent-First delegation | `apex-reviewer`, `lwc-reviewer`, `soql-optimizer`, `flow-reviewer`, `sf-deploy-resolver` agents |
-| Test-Driven, coverage-gated (80% JS) | Salesforce mandates 75% Apex coverage to deploy — encode in `apex-testing` skill + rule |
-| Security-First (Prompt Defense Baseline in every rule) | CRUD/FLS, `WITH SECURITY_ENFORCED`, SOQL-injection, sharing → `apex-security` rule |
-| Immutability / efficiency | Bulkification + governor limits (no SOQL/DML in loops) → `bulkification` skill |
+| Agent-First delegation | `sf-apex-reviewer`, `sf-lwc-reviewer`, `sf-soql-optimizer`, `sf-flow-reviewer`, `sf-deploy-resolver` agents |
+| Test-Driven, coverage-gated (80% JS) | Salesforce mandates 75% Apex coverage to deploy — encode in `sf-apex-testing` skill + rule |
+| Security-First (Prompt Defense Baseline in every rule) | CRUD/FLS, `WITH SECURITY_ENFORCED`, SOQL-injection, sharing → `rules/sf-apex/security.md` |
+| Immutability / efficiency | Bulkification + governor limits (no SOQL/DML in loops) → `sf-apex-bulkification` skill |
 | Plan Before Execute | Keep `/plan`; valuable for multi-object deployments |
 | Canonical source → adapter fan-out | Keep SF content in canonical dirs; existing build fans it out per harness |
 | Catalog as source of truth | Run `catalog:sync` after adding SF content |
-| Conventions (lowercase-hyphen, YAML frontmatter, conventional commits) | `apex-reviewer.md`, `feat(sf): ...`; validators enforce |
+| Conventions (lowercase-hyphen, YAML frontmatter, conventional commits) | `sf-apex-reviewer.md`, `feat(sf): ...`; validators enforce |
 | Skill format (When to Use / How It Works / Examples) | Same three sections for every SF skill |
 
-### First Salesforce additions (all new files → zero merge conflict)
+### Salesforce additions roadmap (all new files → zero merge conflict)
 
-- **Agents:** `apex-reviewer`, `lwc-reviewer`, `soql-optimizer`, `flow-reviewer`, `sf-deploy-resolver`
-- **Skills:** `apex-patterns`, `apex-testing`, `lwc-jest-testing`, `trigger-handler-framework`, `bulkification`, `sfdx-source-deploy`, `scratch-org-workflow`
-- **Rules:** `apex-security`, `apex-style`, `governor-limits` (each with the Prompt Defense Baseline header)
-- **Commands:** `/sf-deploy`, `/apex-test`, `/apex-review`, `/lwc-test`, `/soql-check`
+- **Agents:** `sf-apex-reviewer` (done), `sf-lwc-reviewer`, `sf-soql-optimizer`, `sf-flow-reviewer`, `sf-deploy-resolver`
+- **Skills:** `sf-apex-patterns`, `sf-apex-testing` (done), `sf-apex-bulkification` (done), `sf-lwc-jest-testing`, `sf-trigger-handler-framework`, `sf-cli-workflow`, `sf-scratch-org`
+- **Rules:** `rules/sf-apex/security.md` (done), `rules/sf-apex/governor-limits.md` (done), `rules/sf-apex/style.md`, `rules/sf-lwc/`
+- **Commands:** `/sf-apex-review` (done), `/sf-deploy`, `/sf-apex-test`, `/sf-lwc-test`, `/sf-soql-check`
 
-Base each new file on the closest existing peer (e.g. `apex-reviewer` on
+Base each new file on the closest existing peer (e.g. `sf-apex-reviewer` on
 `rust-reviewer`) so it passes the validators on first run.
+
+## 10. Naming convention
+
+All ECC4SF components carry a uniform **`sf-` prefix**, with technology expressed in
+the name: `sf-<tech>-<role>` (e.g. `sf-apex-reviewer`, `sf-lwc-reviewer`,
+`sf-soql-optimizer`). Cross-cutting components drop the tech segment
+(`sf-deploy-resolver`, `sf-security-reviewer`).
+
+Rationale:
+
+- **Grouping** — every Salesforce component sorts together in the flat `agents/`,
+  `skills/`, and `commands/` directories.
+- **Collision-safety** — as a fork that merges upstream, the `sf-` namespace prevents
+  clashes with current or future ECC content (e.g. generic terms like `flow`,
+  `bulkification`, `deploy` already exist or are likely upstream).
+- **Scope clarity** — `apex` is one of ~10 core-platform technologies (Apex, LWC, Aura,
+  Visualforce, SOQL/SOSL, Flow, Lightning/SLDS, Metadata/SFDX, OmniStudio), so it must
+  not be the umbrella; `sf-` is.
+
+Rule directories follow the same prefix: `rules/sf-apex/`, `rules/sf-lwc/`, etc., with
+language-scoped files inside (`security.md`, `governor-limits.md`).

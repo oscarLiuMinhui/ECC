@@ -1,5 +1,5 @@
 ---
-name: apex-testing
+name: sf-apex-testing
 description: Write and review Salesforce Apex unit tests that meet the 75% deploy coverage gate while proving correctness — using TestDataFactory, @testSetup, Test.startTest/stopTest, bulk (200-record) and negative paths, runAs permission tests, and mocked callouts.
 origin: ECC4SF
 ---

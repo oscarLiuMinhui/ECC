@@ -1,5 +1,5 @@
 ---
-name: bulkification
+name: sf-apex-bulkification
 description: Write Salesforce Apex that scales from 1 to 200+ records in a single transaction — moving SOQL/DML out of loops, operating on collections, and using maps/relationship queries to avoid governor LimitExceptions.
 origin: ECC4SF
 ---
@@ -88,7 +88,7 @@ if (!followUps.isEmpty()) {
 - [ ] Related data resolved via `Map` lookups or relationship queries (no N+1)
 - [ ] DML collected into lists and executed once after the loop
 - [ ] Large data volumes chunked into Batch/Queueable
-- [ ] Verified with a ~200-record test (see the `apex-testing` skill)
+- [ ] Verified with a ~200-record test (see the `sf-apex-testing` skill)
 
 ## Anti-Patterns
 

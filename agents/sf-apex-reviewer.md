@@ -1,5 +1,5 @@
 ---
-name: apex-reviewer
+name: sf-apex-reviewer
 description: Expert Salesforce Apex code reviewer specializing in governor limits, bulkification, CRUD/FLS and sharing security, SOQL injection, trigger frameworks, and test quality. Use for all Apex (.cls/.trigger) changes. MUST BE USED for Salesforce projects.
 tools: ["Read", "Grep", "Glob", "Bash"]
 model: sonnet

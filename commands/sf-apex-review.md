@@ -1,10 +1,10 @@
 ---
-description: Comprehensive Salesforce Apex code review for security (CRUD/FLS, sharing, SOQL injection), governor limits/bulkification, trigger design, and test quality. Invokes the apex-reviewer agent.
+description: Comprehensive Salesforce Apex code review for security (CRUD/FLS, sharing, SOQL injection), governor limits/bulkification, trigger design, and test quality. Invokes the sf-apex-reviewer agent.
 ---
 
 # Apex Code Review
 
-This command invokes the **apex-reviewer** agent for comprehensive Salesforce Apex
+This command invokes the **sf-apex-reviewer** agent for comprehensive Salesforce Apex
 review.
 
 ## What This Command Does
@@ -19,7 +19,7 @@ review.
 
 ## When to Use
 
-Use `/apex-review` when:
+Use `/sf-apex-review` when:
 - After writing or modifying Apex (classes, triggers, batch/queueable jobs, controllers)
 - Before committing or deploying Apex changes
 - Reviewing pull requests with Apex code
@@ -46,6 +46,6 @@ Use `/apex-review` when:
 
 ## Related
 
-- Agent: `apex-reviewer`
-- Rules: `rules/apex/security.md`, `rules/apex/governor-limits.md`
-- Skills: `apex-testing`, `bulkification`
+- Agent: `sf-apex-reviewer`
+- Rules: `rules/sf-apex/security.md`, `rules/sf-apex/governor-limits.md`
+- Skills: `sf-apex-testing`, `sf-apex-bulkification`

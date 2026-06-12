@@ -50,7 +50,7 @@ update toUpdate;
 
 Triggers, `@InvocableMethod`, batch `execute`, and controllers all receive **collections**.
 Write logic against the whole collection — never `Trigger.new[0]` or single-record
-assumptions. See the [bulkification](../../skills/bulkification/SKILL.md) skill.
+assumptions. See the [sf-apex-bulkification](../../skills/sf-apex-bulkification/SKILL.md) skill.
 
 ### Query selectively and bound results
 
