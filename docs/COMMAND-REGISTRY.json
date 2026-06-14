@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "totalCommands": 87,
+  "totalCommands": 89,
   "commands": [
     {
       "command": "aside",
@@ -896,6 +896,24 @@
       "path": "commands/sf-flow-review.md"
     },
     {
+      "command": "sf-lwc-build",
+      "description": "Scaffold a complete Salesforce Lightning Web Component — bundle (js, html, css, js-meta.xml), a secure with-sharing Apex controller, and a Jest test — following LWC reactivity, security, performance, and accessibility conventions. Invokes the sf-lwc-builder agent.",
+      "type": "testing",
+      "primaryAgents": [],
+      "allAgents": [],
+      "skills": [],
+      "path": "commands/sf-lwc-build.md"
+    },
+    {
+      "command": "sf-lwc-review",
+      "description": "Comprehensive Salesforce Lightning Web Components review for LWC bundles (js, html, css, js-meta.xml) and their Apex controllers — reactivity correctness, Lightning Web Security/XSS, controller CRUD-FLS/sharing, client performance, data handling, and accessibility/SLDS. Invokes the sf-lwc-reviewer agent.",
+      "type": "testing",
+      "primaryAgents": [],
+      "allAgents": [],
+      "skills": [],
+      "path": "commands/sf-lwc-review.md"
+    },
+    {
       "command": "sf-omnistudio-review",
       "description": "Comprehensive Salesforce OmniStudio review for OmniScripts, Integration Procedures, DataRaptors, and FlexCards — performance under governor limits, DataRaptor FLS/security, declarative-vs-Apex design, versioning/activation, and naming. Invokes the sf-omnistudio-reviewer agent.",
       "type": "testing",
@@ -958,7 +976,7 @@
       "planning": 2,
       "refactoring": 1,
       "review": 9,
-      "testing": 55
+      "testing": 57
     },
     "topAgents": [
       {
