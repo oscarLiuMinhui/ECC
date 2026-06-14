@@ -14,6 +14,31 @@ log lives in git history (conventional commits); this is the curated human log.
 
 ### Added
 
+- **LWC pack** — full build-and-review pack for Lightning Web Components (the bundle:
+  `*.js`, `*.html`, `*.css`, `*.js-meta.xml`, plus the Apex controllers they call):
+  - `sf-lwc-reviewer` agent — reviews LWC bundles for reactivity correctness (in-place
+    mutation that skips re-render, `@api`/`@wire` misuse), Lightning Web Security/XSS,
+    controller CRUD-FLS/sharing and SOQL injection, client performance (`renderedCallback`
+    guards, debounce, unbounded lists, round trips), data handling (loading/error states,
+    `refreshApex`), and accessibility/SLDS.
+  - `sf-lwc-builder` agent — scaffolds a complete bundle (reactive JS, SLDS/a11y HTML,
+    `*.js-meta.xml`), a secure `with sharing` Apex controller, and a Jest test.
+  - `/sf-lwc-review` and `/sf-lwc-build` commands — invoke the agents; registered in
+    `agent.yaml` and the command registry.
+  - `sf-lwc-patterns` skill — composition/slots, `@api`/getter reactivity, immutable state
+    updates, parent-child events, Lightning Message Service, splitting components.
+  - `sf-lwc-data` skill — Lightning Data Service vs `@wire` vs imperative Apex,
+    `cacheable=true` semantics, `refreshApex`, loading/error states, GraphQL wire.
+  - `sf-lwc-performance` skill — re-render hygiene, `renderedCallback` guards, debounce,
+    pagination/lazy-load, round-trip minimization, leak cleanup in `disconnectedCallback`.
+  - `sf-lwc-security` skill — LWS, XSS/`lwc:dom` sanitization, controller `WITH USER_MODE`/
+    `stripInaccessible`/sharing, Named Credentials, keeping secrets/PII off the client.
+  - `sf-lwc-testing` skill — `sfdx-lwc-jest`: `createElement`, mocking wire adapters and
+    imperative Apex, async DOM assertions, event and error-path coverage.
+  - `sf-lwc-accessibility` skill — base Lightning components, labels/ARIA/focus, keyboard
+    nav, SLDS design tokens over hardcoded styling, responsive grid.
+  - `rules/sf-lwc/` — `performance.md`, `security.md`, `naming-conventions.md` (path-scoped
+    to `lwc/` bundle files).
 - **Flow pack** — full review pack covering record-triggered (before/after-save), screen,
   scheduled, platform-event, and autolaunched Flows:
   - `sf-flow-reviewer` agent — reviews Flow metadata for performance under governor limits

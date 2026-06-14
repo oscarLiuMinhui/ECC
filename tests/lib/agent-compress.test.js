@@ -252,12 +252,16 @@ function runTests() {
     assert.ok(ratio < 0.5, `Compression ratio ${ratio.toFixed(2)} should be < 0.5`);
   })) passed++; else failed++;
 
-  if (test('catalog mode token estimate is under 5000 for real agents', () => {
+  // Catalog token budget scales with the agent count. Bump this cap in step with the
+  // catalog as new agent packs land (e.g. the ECC4SF sf-* packs) rather than letting it
+  // act as a hard freeze on adding agents.
+  if (test('catalog mode token estimate is under budget for real agents', () => {
     if (!fs.existsSync(realAgentsDir)) return;
+    const CATALOG_TOKEN_BUDGET = 5500;
     const result = buildAgentCatalog(realAgentsDir, { mode: 'catalog' });
     assert.ok(
-      result.stats.compressedTokenEstimate < 5000,
-      `Token estimate ${result.stats.compressedTokenEstimate} exceeds 5000`
+      result.stats.compressedTokenEstimate < CATALOG_TOKEN_BUDGET,
+      `Token estimate ${result.stats.compressedTokenEstimate} exceeds ${CATALOG_TOKEN_BUDGET}`
     );
   })) passed++; else failed++;
 
