@@ -235,6 +235,9 @@ commands:
   - security-scan
   - sessions
   - setup-pm
+  - sf-agentforce-build
+  - sf-agentforce-refresh
+  - sf-agentforce-review
   - sf-apex-review
   - sf-flow-review
   - sf-lwc-build

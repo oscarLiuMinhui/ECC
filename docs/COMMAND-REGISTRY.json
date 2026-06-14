@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "totalCommands": 89,
+  "totalCommands": 92,
   "commands": [
     {
       "command": "aside",
@@ -876,6 +876,33 @@
       "path": "commands/setup-pm.md"
     },
     {
+      "command": "sf-agentforce-build",
+      "description": "Scaffold a complete Salesforce Agentforce agent — an AiAuthoringBundle with an Agent Script (*.agent) file, non-overlapping subagents (GenAiPlugin), secure actions (GenAiFunction, with-sharing Apex/Flow/prompt), grounding prompt templates, and a starter AiEvaluationDefinition — following Agentforce DX conventions. Invokes the sf-agentforce-builder agent.",
+      "type": "testing",
+      "primaryAgents": [],
+      "allAgents": [],
+      "skills": [],
+      "path": "commands/sf-agentforce-build.md"
+    },
+    {
+      "command": "sf-agentforce-refresh",
+      "description": "Re-sync the Salesforce Agentforce skills against current Salesforce documentation. Reads each sf-agentforce skill's pinned sources and apiVersion, fetches the live docs, summarizes drift (new/renamed metadata types, API-version bumps, new sf agent CLI commands, Agent Script changes), proposes skill edits, and bumps lastVerified — written to the working tree for review, never auto-committed.",
+      "type": "testing",
+      "primaryAgents": [],
+      "allAgents": [],
+      "skills": [],
+      "path": "commands/sf-agentforce-refresh.md"
+    },
+    {
+      "command": "sf-agentforce-review",
+      "description": "Comprehensive Salesforce Agentforce review across Agent Script (*.agent / AiAuthoringBundle) and runtime metadata (GenAiPlannerBundle, GenAiPlugin subagents, GenAiFunction actions, prompt templates, AiEvaluationDefinition) — subagent routing, prompt-injection/scope guardrails, action sharing/CRUD-FLS, PII-into-LLM exposure, grounding, and eval coverage. Invokes the sf-agentforce-reviewer agent.",
+      "type": "testing",
+      "primaryAgents": [],
+      "allAgents": [],
+      "skills": [],
+      "path": "commands/sf-agentforce-review.md"
+    },
+    {
       "command": "sf-apex-review",
       "description": "Comprehensive Salesforce Apex code review for security (CRUD/FLS, sharing, SOQL injection), governor limits/bulkification, trigger design, and test quality. Invokes the sf-apex-reviewer agent.",
       "type": "testing",
@@ -976,7 +1003,7 @@
       "planning": 2,
       "refactoring": 1,
       "review": 9,
-      "testing": 57
+      "testing": 60
     },
     "topAgents": [
       {

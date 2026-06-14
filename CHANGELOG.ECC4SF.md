@@ -14,6 +14,39 @@ log lives in git history (conventional commits); this is the curated human log.
 
 ### Added
 
+- **Agentforce pack** — full build-and-review pack for Salesforce Agentforce 2.0, covering both
+  the 2026 Agentforce DX design-time surface (Agent Script `*.agent` files in an
+  `AiAuthoringBundle`) and the runtime metadata (`GenAiPlannerBundle`, `GenAiPlugin` subagents,
+  `GenAiFunction` actions, `GenAiPromptTemplate`, `AiEvaluationDefinition`, `Bot`):
+  - `sf-agentforce-reviewer` agent — reviews agents for subagent routing (overlapping scope,
+    vague action "when to use"), security/guardrails (PII/secrets into the LLM, action
+    sharing/CRUD-FLS, SOQL injection, prompt-injection/scope boundaries), grounding (citations,
+    minimal context), and eval coverage.
+  - `sf-agentforce-builder` agent — scaffolds an `AiAuthoringBundle` with an Agent Script
+    `.agent` file, non-overlapping subagents, secure `with sharing` actions, grounding prompt
+    templates, and a starter `AiEvaluationDefinition`, then reports the DX publish/activate steps.
+  - `/sf-agentforce-build` and `/sf-agentforce-review` commands — invoke the agents; registered
+    in `agent.yaml` and the command registry.
+  - `/sf-agentforce-refresh` command — re-syncs the skills against current Salesforce docs
+    (reads each skill's pinned `sources`/`apiVersion`, fetches the live guide, summarizes drift,
+    and proposes edits + a `lastVerified` bump to the working tree for review — never
+    auto-commits). Keeps the pack current as the fast-moving Agentforce ecosystem changes.
+  - `sf-agentforce-subagents` skill — decomposing an agent into non-overlapping subagents
+    (topics) with disjoint scope, classification/reasoning instructions, "do not" boundaries,
+    and a no-match fallback for deterministic routing.
+  - `sf-agentforce-actions` skill — authoring Apex/Flow/prompt actions with precise "when to
+    use" and described inputs/outputs, secure `with sharing`/`WITH USER_MODE` Apex, minimal
+    redacted outputs, and the deterministic-vs-generative choice.
+  - `sf-agentforce-grounding` skill — prompt templates and Data 360 retrievers/RAG, delimited
+    record context, citations, FLS-respecting minimal grounding, and hallucination control.
+  - `sf-agentforce-testing` skill — Testing Center / `AiEvaluationDefinition` evals mapping
+    utterances + context variables to expected subagent/action sequences, with adversarial and
+    negative coverage, run via `sf agent test run` before activation.
+  - Each skill carries a freshness contract in frontmatter (`apiVersion`, `lastVerified`,
+    `staleAfterDays`, pinned `sources`) that `/sf-agentforce-refresh` consumes.
+  - `rules/sf-agentforce/` — `security.md`, `instructions.md`, `testing.md`,
+    `naming-conventions.md` (path-scoped to Agent Script `*.agent`, `aiAuthoringBundles/`, and
+    the `genAi*`/`aiEvaluationDefinitions/` metadata).
 - **LWC pack** — full build-and-review pack for Lightning Web Components (the bundle:
   `*.js`, `*.html`, `*.css`, `*.js-meta.xml`, plus the Apex controllers they call):
   - `sf-lwc-reviewer` agent — reviews LWC bundles for reactivity correctness (in-place
